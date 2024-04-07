@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar";
 import Body from "./components/body";
 const ModelTrain = () => {
     return ( 
-        <div className="flex h-screen">
+        <div className="flex h-screen flex-wrap">
         {/* Sidebar */}
         <Sidebar />
   
