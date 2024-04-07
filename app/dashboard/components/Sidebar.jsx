@@ -47,7 +47,7 @@ const Sidebar = () => {
         <ul className="space-y-1 border-t border-gray-100 pt-4">
           <li>
             <a
-              href="/trained"
+              href="/dashboard/trained"
               className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
             >
               <svg
@@ -75,7 +75,7 @@ const Sidebar = () => {
 
           <li>
             <a
-              href="/premium"
+              href="/dashboard/premium"
               className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
             >
               <svg
@@ -103,7 +103,7 @@ const Sidebar = () => {
 
           <li>
             <a
-              href="/trainmodel"
+              href="/dashboard/trainmodel"
               className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
             >
               <svg
@@ -131,7 +131,7 @@ const Sidebar = () => {
 
           <li>
             <a
-              href="/modeltrain"
+              href="/dashboard"
               className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
             >
               <svg

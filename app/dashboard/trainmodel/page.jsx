@@ -1,8 +1,9 @@
-import Head from "../modeltrain/components/Head";
-import Sidebar from "../modeltrain/components/Sidebar";
-import Pricing from "./components/pricing";
+import Head from "../components/Head";
+import Sidebar from "../components/Sidebar";
+import Train from "../components/train";
 
-const Premium = () => {
+
+const trainmodel = () => {
     return ( 
         <div className="flex h-screen">
         {/* Sidebar */}
@@ -12,7 +13,7 @@ const Premium = () => {
         <div className="flex-grow">
           {/* Head component */}
           <Head />
-          <Pricing/>
+          <Train/>
           {/* Other content for the main section */}
           {/* Add your content here */}
         </div>
@@ -20,4 +21,4 @@ const Premium = () => {
      );
 }
  
-export default Premium;
+export default trainmodel;

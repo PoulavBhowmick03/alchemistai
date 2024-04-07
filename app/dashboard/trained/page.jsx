@@ -1,6 +1,6 @@
-import Head from "../modeltrain/components/Head";
-import Sidebar from "../modeltrain/components/Sidebar";
-import Trained from "./components/trained";
+import Head from "../components/Head";
+import Sidebar from "../components/Sidebar";
+import Trained from "../components/trained";
 
 
 const Home = () => {
