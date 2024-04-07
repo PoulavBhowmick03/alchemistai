@@ -135,7 +135,7 @@ const Navbar = () => {
                       <div className="pt-4">
                         <a
                           className="rounded-md bg-gray-100 hover:bg-red-400 hover:text-white  px-5 py-2.5 text-sm font-medium text-red-400"
-                          href="/dashboard/modeltrain"
+                          href="/dashboard"
                         >
                           Try Out
                         </a>
