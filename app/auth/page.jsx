@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
+import { signIn } from 'next-auth/react';
 
 function LoginSignupPage() {
   const [isLogin, setIsLogin] = useState(true);
@@ -35,10 +36,15 @@ function LoginForm({ handleToggle }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Logged in:', { email, password });
+    const res = await signIn("credentials", {
+      username: email,
+      password: password,
+      redirect: false,
+    });
+    console.log(res);
+    router.push("/");
   };
 
   return (
@@ -99,10 +105,19 @@ function SignupForm({ handleToggle }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle signup logic here
-    console.log('Signed up:', { name, email, password });
+    // TODO: Handle signup logic here
+
+
+    // SIGNING IN AFTER SIGNUP
+    const res = await signIn("credentials", {
+      username: email,
+      password: password,
+      redirect: false,
+    });
+    console.log(res);
+    router.push("/");
   };
 
   return (
