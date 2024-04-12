@@ -1,6 +1,14 @@
 "use client";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+
 const Navbar = () => {
+
+  const {data, status} = useSession()
+  console.log(status)
+
+
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -63,12 +71,24 @@ const Navbar = () => {
 
             <div className="flex items-center gap-4">
               <div className="sm:flex sm:gap-4">
-                <a
+                {status === "authenticated" ? (
+                  <a
+                  className="rounded-md bg-red-400 hover:bg-gray-100 px-5 py-2.5 text-sm font-medium text-white shadow hover:text-red-500"
+                  href="/dashboard"
+                >
+                  Dashboard
+                </a>
+                 ) : (
+                  <a
                   className="rounded-md bg-red-400 hover:bg-gray-100 px-5 py-2.5 text-sm font-medium text-white shadow hover:text-red-500"
                   href="/auth"
                 >
                   Login
                 </a>
+                )}
+                
+
+                
 
                 <div className="hidden sm:flex">
                   <a

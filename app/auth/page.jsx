@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 function LoginSignupPage() {
   const [isLogin, setIsLogin] = useState(true);
@@ -33,18 +34,18 @@ function LoginSignupPage() {
 }
 
 function LoginForm({ handleToggle }) {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await signIn("credentials", {
-      username: email,
+      email: email,
       password: password,
       redirect: false,
     });
-    console.log(res);
-    router.push("/");
+    router.push("/dashboard");
   };
 
   return (
@@ -60,7 +61,7 @@ function LoginForm({ handleToggle }) {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border rounded-md px-4 py-2 w-full"
+            className="border rounded-md px-4 py-2 w-full text-black"
             required
           />
         </div>
@@ -76,7 +77,7 @@ function LoginForm({ handleToggle }) {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="border rounded-md px-4 py-2 w-full"
+            className="border rounded-md px-4 py-2 w-full text-black"
             required
           />
         </div>
@@ -101,23 +102,36 @@ function LoginForm({ handleToggle }) {
 }
 
 function SignupForm({ handleToggle }) {
+  const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    // TODO: Handle signup logic here
-
-
-    // SIGNING IN AFTER SIGNUP
-    const res = await signIn("credentials", {
-      username: email,
-      password: password,
-      redirect: false,
-    });
-    console.log(res);
-    router.push("/");
+  e.preventDefault();
+  const res = await fetch('/api/register', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        data: {
+            name,
+            email,
+            password
+        }
+    })
+  })
+  const response = await res.json()
+  console.log(response.id)
+  if (response.id) {
+    await signIn("credentials", {
+        email,
+        password,
+        redirect: false
+    })
+    router.push("/dashboard")
+  }
   };
 
   return (
@@ -133,7 +147,7 @@ function SignupForm({ handleToggle }) {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="border rounded-md px-4 py-2 w-full"
+            className="border rounded-md px-4 py-2 w-full text-black"
             required
           />
         </div>
@@ -146,7 +160,7 @@ function SignupForm({ handleToggle }) {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border rounded-md px-4 py-2 w-full"
+            className="border rounded-md px-4 py-2 w-full text-black"
             required
           />
         </div>
@@ -162,7 +176,7 @@ function SignupForm({ handleToggle }) {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="border rounded-md px-4 py-2 w-full"
+            className="border rounded-md px-4 py-2 w-full text-black"
             required
           />
         </div>
