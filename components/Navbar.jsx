@@ -90,14 +90,14 @@ const Navbar = () => {
 
                 
 
-                <div className="hidden sm:flex">
+                {/* <div className="hidden sm:flex">
                   <a
                     className="rounded-md bg-gray-100 hover:bg-red-400 hover:text-white  px-5 py-2.5 text-sm font-medium text-red-400"
                     href="/dashboard"
                   >
                     Try Out
                   </a>
-                </div>
+                </div> */}
               </div>
 
               <div className="block md:hidden">
