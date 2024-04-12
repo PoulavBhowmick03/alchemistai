@@ -1,10 +1,18 @@
-const Head = () => {
+"use client"
+import { useSession } from "next-auth/react";
+
+const Head =  () => {
+  const {data, status} = useSession()
+  let user;
+  if (status === "authenticated") {
+    user = data.user.name
+  }
     return ( 
         <header className="bg-white">
   <div className="  mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <div className="sm:flex sm:items-center sm:justify-between">
       <div className="text-center sm:text-left">
-        <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">Welcome Back, User!</h1>
+        <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">Welcome Back, {user}!</h1>
 
         <p className="mt-1.5 text-sm text-gray-500">Lets train the model you want! 🎉</p>
       </div>

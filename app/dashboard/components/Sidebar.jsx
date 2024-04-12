@@ -1,9 +1,18 @@
 "use client"
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FaHome, FaSignOutAlt, FaHistory, FaMoneyBill, FaRobot, FaUser} from "react-icons/fa";
 
 const Sidebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const handleSignOut = (e) => {
+    e.preventDefault()
+    signOut()
+    router.push("/")
+  }
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -122,6 +131,7 @@ const Sidebar = () => {
               <button
             type="submit"
             className="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700 md:justify-start"
+            onClick={handleSignOut}
           >
             <FaSignOutAlt className='h-6 w-6' />
             <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs group-hover:visible font-medium text-white">
