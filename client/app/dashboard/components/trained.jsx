@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Trained = () => {
   return (
     <div className="bg-white h-screen">
@@ -19,15 +21,16 @@ const Trained = () => {
         </div>
         <div className="mt-8"></div>
       </div>
+      <Link href="https://drive.google.com/file/d/1f8oQ03vDLCyZkcCrpi6wGGp9FzsT7YqR/view">
       <div className="max-w-7xl mx-auto">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="text-center sm:text-left">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Model 1
+            Model 1
             </h2>
           </div>
         </div>
-      </div>
+      </div></Link>
       <div className=" pt-5 pl-24 pr-6 grid grid-cols-1 gap-4 transition-[grid-template-columns] lg:grid-cols-[1fr_120px] lg:gap-8 lg:[&:has(>*:last-child:hover)]:grid-cols-[1fr_160px]">
         <div className="h-32 rounded-lg bg-gray-200"></div>
         <div className="h-32 rounded-lg bg-gray-200"></div>

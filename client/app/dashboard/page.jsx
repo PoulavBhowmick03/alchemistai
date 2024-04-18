@@ -9,9 +9,9 @@ const ModelTrain = () => {
   const router = useRouter()
   const {data: session, status} = useSession()
   
-  if (status === "unauthenticated") {
-    router.push("/")
-  }
+  // if (status === "unauthenticated") {
+  //   router.push("/")
+  // }
 
     return ( 
         <div className="flex h-screen flex-wrap">
