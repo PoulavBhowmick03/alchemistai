@@ -3,8 +3,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Sidebar from '../dashboard/components/Sidebar';
 import Head from '../dashboard/components/Head';
+import { MutatingDots } from 'react-loader-spinner';
 
 const Body = () => {
+
+  const [loading, setLoading] = useState(false);
+
+  
+
   const [inputValue, setInputValue] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
 
@@ -30,6 +36,10 @@ const Body = () => {
     e.preventDefault();
     setChatHistory([...chatHistory, inputValue]);
     setInputValue('');
+    setLoading(true)
+    if (loading === true) {
+      setLoading(false)
+    }
 
     try {
       const response = await axios.post('/api/chatbot', { input: inputValue });
@@ -65,6 +75,7 @@ const Body = () => {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Type your message here..."
               className="w-full px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
             />
             <button
               type="submit"
@@ -75,7 +86,29 @@ const Body = () => {
           </form>
           <div className="mt-4 bg-gray-100 rounded-lg p-4">
             {chatHistory.map((message, index) => (
-              <div
+              
+              // <div key={index}  className={`p-2 rounded-lg mb-2 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-200'}`}>
+                
+              //   Loading...
+              // </div>
+             
+              loading === true ? (
+                <div key={index} className='min-w-max flex  items-center justify-center'>
+                <MutatingDots
+                key={index}
+                visible={true}
+                height="100"
+                width="100"
+                color="#d32f2f"
+                secondaryColor="#d32f2f"
+                radius="12.5"
+                ariaLabel="mutating-dots-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                />
+              </div>
+              ) : (
+                <div
                 key={index}
                 className={`p-2 rounded-lg mb-2 ${
                   index % 2 === 0 ? 'bg-white' : 'bg-gray-200'
@@ -83,6 +116,7 @@ const Body = () => {
               >
                 {message}
               </div>
+              )
             ))}
           </div>
         </div>
