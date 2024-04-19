@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy":"npm i && npx prisma generate"
+    "deploy": "npm i && npx prisma generate"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.6.0",
     "@prisma/client": "^5.12.1",
+    "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "framer-motion": "^11.0.25",
     "next": "14.1.4",

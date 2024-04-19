@@ -78,13 +78,13 @@ const Sidebar = () => {
             <ul className="space-y-1 border-t border-gray-100 pt-4 md:border-none md:pt-6">
             <li>
               <a
-                href="/dashboard/trained"
+                href="/generate"
                 className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700 md:justify-start"
               >
                 {/* Trained Models Icon */}
                 <FaHistory className='h-6 w-6'/>
                 <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs group-hover:visible font-medium text-white">
-                  Trained Models
+                  Generate
                 </span>
               </a>
             </li>
