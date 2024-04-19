@@ -42,7 +42,7 @@ const Body = () => {
     }
 
     try {
-      const response = await axios.post('/api/chatbot', { input: inputValue });
+      const response = await axios.post('http://127.0.0.1:5000/generate', { input: inputValue });
       setChatHistory([...chatHistory, inputValue, response.data.output]);
     } catch (error) {
       console.error('Error:', error);
