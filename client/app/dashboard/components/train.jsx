@@ -14,7 +14,7 @@ const train = () => {
     <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
       <a
         className="block rounded-xl border border-gray-300 p-8 shadow-xl transition hover:border-red-400 hover:shadow-red-500/10"
-        href="https://drive.google.com/file/d/1f8oQ03vDLCyZkcCrpi6wGGp9FzsT7YqR/view"
+        href="/dashboard/trained"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
