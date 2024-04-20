@@ -1,15 +1,25 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from '../dashboard/components/Sidebar';
 import Head from '../dashboard/components/Head';
 import { MutatingDots } from 'react-loader-spinner';
+import Image from 'next/image';
+import train from './../../public/train.jpg';
 
 const Body = () => {
 
+  
+
   const [loading, setLoading] = useState(false);
 
-  
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, [loading]);
 
   const [inputValue, setInputValue] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
@@ -110,11 +120,9 @@ const Body = () => {
               ) : (
                 <div
                 key={index}
-                className={`p-2 rounded-lg mb-2 ${
-                  index % 2 === 0 ? 'bg-white' : 'bg-gray-200'
-                }`}
+                className="flex items-center justify-center"
               >
-                {message}
+                <Image alt="" src={train} width={250} height={250}/>
               </div>
               )
             ))}
