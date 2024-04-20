@@ -3,8 +3,10 @@ import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for the Flask app
 
 # Load the trained model
 model = load_model('./global_model.h5')
