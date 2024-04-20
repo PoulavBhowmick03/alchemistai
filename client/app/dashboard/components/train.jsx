@@ -38,11 +38,10 @@ const train = () => {
           />
         </svg>
 
-        <h2 className="mt-4 text-xl font-bold text-gray-800">Model 1</h2>
+        <h2 className="mt-4 text-xl font-bold text-gray-800">Covid 19 X-Ray Prediction Model</h2>
 
         <p className="mt-1 text-sm text-gray-900">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
+          This model is trained on X-Ray images of covid 19 patients
         </p>
       </a>
 
@@ -69,11 +68,10 @@ const train = () => {
           />
         </svg>
 
-        <h2 className="mt-4 text-xl font-bold text-gray-800">Model 2</h2>
+        <h2 className="mt-4 text-xl font-bold text-gray-800">Pneumonia Predicting Model</h2>
 
         <p className="mt-1 text-sm text-gray-900">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
+          This model is used to predict pneumonia in patients
         </p>
       </a>
 
@@ -100,11 +98,10 @@ const train = () => {
           />
         </svg>
 
-        <h2 className="mt-4 text-xl font-bold text-gray-800">Model 3</h2>
+        <h2 className="mt-4 text-xl font-bold text-gray-800">Benign Tumour Predicting Model</h2>
 
         <p className="mt-1 text-sm text-gray-900">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
+          This model helps in identifying benign tumours in patients with cancer
         </p>
       </a>
 
@@ -131,11 +128,10 @@ const train = () => {
           />
         </svg>
 
-        <h2 className="mt-4 text-xl font-bold text-gray-800">Model 4</h2>
+        <h2 className="mt-4 text-xl font-bold text-gray-800">Skin Cancer Predicting Model</h2>
 
         <p className="mt-1 text-sm text-gray-900">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
+          This model helps in identifying skin cancer in patients.
         </p>
       </a>
 
@@ -162,11 +158,10 @@ const train = () => {
           />
         </svg>
 
-        <h2 className="mt-4 text-xl font-bold text-gray-800">Model 5</h2>
+        <h2 className="mt-4 text-xl font-bold text-gray-800">Heart Disease Predicting Model</h2>
 
         <p className="mt-1 text-sm text-gray-900">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
+        This model helps in identifying heart diseases in patients.
         </p>
       </a>
 
@@ -193,11 +188,10 @@ const train = () => {
           />
         </svg>
 
-        <h2 className="mt-4 text-xl font-bold text-gray-800">Model 6</h2>
+        <h2 className="mt-4 text-xl font-bold text-gray-800">Brain Tumour Predicting Model</h2>
 
         <p className="mt-1 text-sm text-gray-900">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci
-          distinctio alias voluptatum blanditiis laudantium.
+          This model helps in identifying brain tumours in patients.
         </p>
       </a>
     </div>
