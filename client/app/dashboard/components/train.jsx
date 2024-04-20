@@ -1,3 +1,6 @@
+
+import React from 'react';
+import colab from "../../../public/colab.png"
 const train = () => {
     return ( 
         <section className="bg-gray-100 text-gray-900">
