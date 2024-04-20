@@ -10,6 +10,68 @@ PORT = 12345
 # Load the existing global model from the file
 global_model = tf.keras.models.load_model('global_model.h5')
 
+
+
+def load_images_from_folder(folder):
+    images = []
+    labels = []
+    for label, class_name in enumerate(os.listdir(folder)):
+        class_folder = os.path.join(folder, class_name)
+        for filename in os.listdir(class_folder):
+            img = cv2.imread(os.path.join(class_folder, filename))
+            if img is not None:
+                img = cv2.resize(img, (224, 224))  # Resize image to desired dimensions
+                img = img / 255.0  # Normalize pixel values to [0, 1]
+                images.append(img)
+                labels.append(label)
+    return np.array(images), np.array(labels)
+
+def create_model():
+    model = tf.keras.Sequential([
+        tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(512, activation='relu'),
+        tf.keras.layers.Dense(1, activation='sigmoid')
+    ])
+    model.compile(optimizer='adam',
+                  loss='binary_crossentropy',
+                  metrics=['accuracy'])
+    return model
+
+def federated_averaging(global_model, client_models):
+    new_weights = []
+    for weights_list in zip(*[model.get_weights() for model in [global_model] + client_models]):
+        new_weights.append(np.array(weights_list).mean(axis=0))
+    global_model.set_weights(new_weights)
+
+# Load global model
+global_model = create_model()
+global_model.load_weights('global_model.h5')
+
+# Load and preprocess client data
+train_images_client1, train_labels_client1 = load_images_from_folder('./client1/train')
+train_images_client2, train_labels_client2 = load_images_from_folder('./client2/train')
+
+# Train client models
+client_model1 = create_model()
+client_model1.fit(train_images_client1, train_labels_client1, epochs=10, verbose=0)
+
+client_model2 = create_model()
+client_model2.fit(train_images_client2, train_labels_client2, epochs=10, verbose=0)
+
+# Perform federated averaging
+federated_averaging(global_model, [client_model1, client_model2])
+
+# Save updated global model
+global_model.save('global_model_updated.h5')
+
 # Function to aggregate model updates from clients
 def aggregate_model_updates(client_updates):
     global global_model
