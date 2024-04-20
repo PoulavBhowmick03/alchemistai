@@ -1,38 +1,38 @@
-import * as React from "react";
-import { motion } from "framer-motion";
+// components/Hero.js
+import styles from "../utils/style";
 
-
-function Header() {
+const Hero = () => {
   return (
-    <header className="flex gap-5 justify-between w-full max-md:flex-wrap max-md:max-w-full">
-      <div className="flex gap-5 my-auto whitespace-nowrap max-md:flex-wrap max-md:max-w-full">
-      </div>
-      <div className="flex gap-5 justify-between text-sm tracking-wide leading-5">
-      </div>
-    </header>
-  );
-}
+    <div className='sm:h-scren h-screen pt-6' style={{ backgroundColor: "white" }}>
+      <section
+        id='home'
+        className={`flex md:flex-row flex-col sm:pt-16  ${styles.paddingY}`}
+      >
+        <div
+          className={`flex-1 ${styles.flexCenter} flex-col p-8  sm:px-20 text-center`}
+        >
+          <div className='mb-6'>
+            <h1 className='font-poppins font-bold text-[52px] sm:text-[72px] text-transparent bg-gradient-to-r from-red-800 to-gray-800 inline-block bg-clip-text ss:leading-[75px] leading-[100.8px]'>
+              The Revolutionary <br className='sm:block hidden' />{" "}
+              <span className='text-gradient'>AI Platform</span>{" "}
+            </h1>
 
-function HeroImage() {
-  return (
-    <img
-      loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/b02f34c9602dd4a54ca7cc320c28520f27a09fd147fb18b598bf8ddc7f0a6776?apiKey=b9f73daff245412db60bf67e2f427461&"
-      alt="Hero image"
-      className="self-start w-full aspect-[1.3] max-md:max-w-full"
-    />
-  );
-}
+            <h1 className=' text-black font-poppins font-bold text-[52px] sm:text-[68px] text-transparent bg-gradient-to-r from-red-500 to-white inline-block bg-clip-text ss:leading-[75px] leading-[100.8px] w-full'>
+              for users to train and use AI models .
+            </h1>
+            
+          </div>
+        </div>
 
-function HomeHeader() {
-  return (
-    <div className="flex flex-col items-center px-16 pt-5 font-bold bg-neutral-50 max-md:px-5">
-      <div className="flex flex-col pb-20 w-full max-w-[1048px] max-md:max-w-full">
-        <Header />
-        <HeroImage />
-      </div>
+        <div className={`flex-1 ${styles.flexCenter} my-10 relative group`}>
+          {/* Gradient overlays */}
+          <div className='absolute z-0 w-[40%] h-[35%] top-0 left-0 bg-gradient-to-br from-red-500 to-white rounded-tl-3xl transform origin-top-left group-hover:rotate-3 group-hover:scale-110 transition-transform duration-300' />
+          <div className='absolute z-1 w-[80%] h-[80%] rounded-full bg-gradient-to-br from-gray-900 to-gray-200 bottom-40 transform origin-bottom group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300' />
+          <div className='absolute z-0 w-[50%] h-[50%] right-20 bottom-20 bg-gradient-to-tr from-red-500 to-white rounded-br-3xl transform origin-bottom-right group-hover:-rotate-3 group-hover:scale-110 transition-transform duration-300' />
+        </div>
+      </section>
     </div>
   );
-}
+};
 
-export default HomeHeader;
+export default Hero;
