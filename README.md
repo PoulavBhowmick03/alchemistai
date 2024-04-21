@@ -21,6 +21,10 @@ Our project incorporates federated learning techniques, which allow AI models to
 3. **Federated Learning Framework Setup:** A robust framework was established for collaborative training across diverse data sources.
 4. **Model Training and Evaluation:** Our generative AI models were trained using federated learning, generating synthetic data used to train AI models for healthcare applications.
 
+**Workflow**
+
+![workflow](https://github.com/PoulavBhowmick03/alchemistai/assets/133862694/993362da-4a02-49e4-940a-0904f04ee68a)
+
 **Technology Stack:**
 
 Tech Stack Elaboration:
