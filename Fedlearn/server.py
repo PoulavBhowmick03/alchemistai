@@ -106,6 +106,7 @@ def handle_client(client_socket):
     # Send confirmation back to client (optional)
     client_socket.sendall(b'Weights updated successfully.')
     client_socket.close()
+    federated_averaging(global_model, [global_model, updated_model_weights])
 
 # Main function
 def main():
